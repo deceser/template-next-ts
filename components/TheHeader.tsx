@@ -1,14 +1,19 @@
 import React from "react";
-import Link from "next/link";
+
+import Navigation from "./Navigation";
 
 type Props = {};
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
+];
 
 const TheHeader = (props: Props) => {
   return (
     <header>
-      <Link href="/">Home</Link>
-      <Link href="/blog">Blog</Link>
-      <Link href="/about">About</Link>
+      <Navigation navLinks={navItems} />
     </header>
   );
 };
