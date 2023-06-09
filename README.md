@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+  **Basic example, client-side components.**
 
-## Getting Started
+![1_Mr6lSXDC7ypxyqJbEW46ng](https://github.com/deceser/template-next-ts/assets/101974867/69f355b1-e01f-4d79-b8b5-434edb954ee3)
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Nesting rules:**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- You can't import a server component inside a client component
+- It is possible to forward server components to client components as children
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![0_M2HXYaFMhZMtTfNK](https://github.com/deceser/template-next-ts/assets/101974867/e2e5633d-038e-4b29-a9ce-6b1c758fee8d)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+**Use client components when:**
 
-To learn more about Next.js, take a look at the following resources:
+- Need to use hooks
+- When you need event handlers for custom actions
+- When using the browser API
+- When class bean is used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Use server components when:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- You get data via server API
+- When you need direct access to backend resources
+- When sensetive information is used (API keys, tokens, etc.)
+- When heavy dependencies are used
