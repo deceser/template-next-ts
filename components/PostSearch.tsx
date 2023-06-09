@@ -2,21 +2,18 @@
 
 import React from "react";
 
-import { getPostBySearch } from "@/services/getData";
+import { usePosts } from "@/store";
 
-type Props = {
-  onSearch: (value: any[]) => void;
-};
+type Props = {};
 
-const PostSearch = ({ onSearch }: Props) => {
+const PostSearch = () => {
   const [search, setSearch] = React.useState("");
+  const getPostsBySearch = usePosts((state) => state.getPostsBySearch);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
 
-    const posts = await getPostBySearch(search);
-
-    onSearch(posts);
+    await getPostsBySearch(search);
   };
 
   return (

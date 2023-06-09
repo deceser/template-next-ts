@@ -1,12 +1,23 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { shallow } from "zustand/shallow";
 
-type Props = {
-  posts: any[];
-};
+import { usePosts } from "@/store";
 
-const PostsList = ({ posts }: Props) => {
-  return (
+type Props = {};
+
+const [posts, loading, getAllPosts] = usePosts((state) => [state.posts, state.loading, state.getAllPosts], shallow);
+
+React.useEffect(() => {
+  getAllPosts();
+}, [getAllPosts]);
+
+const PostsList = (props: Props) => {
+  return loading ? (
+    <h3>Loading...</h3>
+  ) : (
     <ul>
       {posts.map((post: any) => (
         <li key={post.id}>
