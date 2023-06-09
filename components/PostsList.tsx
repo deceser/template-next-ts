@@ -8,13 +8,13 @@ import { usePosts } from "@/store";
 
 type Props = {};
 
-const [posts, loading, getAllPosts] = usePosts((state) => [state.posts, state.loading, state.getAllPosts], shallow);
-
-React.useEffect(() => {
-  getAllPosts();
-}, [getAllPosts]);
-
 const PostsList = (props: Props) => {
+  const [posts, loading, getAllPosts] = usePosts((state) => [state.posts, state.loading, state.getAllPosts], shallow);
+
+  React.useEffect(() => {
+    getAllPosts();
+  }, [getAllPosts]);
+
   return loading ? (
     <h3>Loading...</h3>
   ) : (
